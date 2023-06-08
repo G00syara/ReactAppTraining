@@ -15,13 +15,20 @@ function App() {
   ]);
 
   const [tittle, setTittle] = useState('');
+  const [body, setBody] = useState('');
 
   const bodyInputRef = useRef();
 
   const addNewPost = (e) => {
     e.preventDefault();
-    console.log(tittle);
-    console.log(bodyInputRef.current.value);
+    const newPost = {
+      id: Date.now(),
+      tittle,
+      body,
+    };
+    setPosts([...posts, newPost]);
+    setTittle('');
+    setBody('');
   };
 
   return (
@@ -35,8 +42,7 @@ function App() {
             type="text"
             placeholder=" Название поста"
           />
-          {/* Неуправляемый компонент */}
-          <MyInput ref={bodyInputRef} type="text" placeholder="Описание поста" />
+          <MyInput value={body} onChange={(e) => setBody(e.target.value)} type="text" placeholder=" Название поста" />
           <MyButton onClick={addNewPost}> Создать Пост</MyButton>
         </form>
         <PostList posts={posts} tittle="Список постов 1" />

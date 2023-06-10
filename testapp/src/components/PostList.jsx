@@ -2,6 +2,10 @@ import React from 'react';
 import PostItem from './PostItem';
 
 const PostList = ({ posts, tittle, remove }) => {
+  if (!posts.length) {
+    return <h1 style={{ textAlign: 'center' }}>Постов не найдено </h1>;
+  }
+
   return (
     <div>
       <h1 style={{ textAlign: 'center' }}> {tittle}</h1>

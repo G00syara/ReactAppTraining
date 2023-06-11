@@ -2,14 +2,14 @@ import React from 'react';
 import PostItem from './PostItem';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
-const PostList = ({ posts, tittle, remove }) => {
+const PostList = ({ posts, title, remove }) => {
   if (!posts.length) {
     return <h1 style={{ textAlign: 'center' }}>Постов не найдено </h1>;
   }
 
   return (
     <div>
-      <h1 style={{ textAlign: 'center' }}> {tittle}</h1>
+      <h1 style={{ textAlign: 'center' }}> {title}</h1>
       <TransitionGroup>
         {posts.map((post, index) => (
           <CSSTransition key={post.id} timeout={500} classNames="post">
